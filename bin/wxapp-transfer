@@ -35,7 +35,7 @@ if(!fs.existsSync(from)) {
 	return
 }
 
-transfer(path.join(processPath, from), path.join(processPath, to))
+transfer(path.join(processPath, from), path.join(processPath, to), config)
 	.then(function(){
 		if(clean) {
 			rmFolder(path.join(processPath, from))

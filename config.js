@@ -10,5 +10,6 @@ module.exports = {
 		"tagToText": "span|b|em",
 		"tagToCheckbox": "checkbox",
 		"tagToRadio": "radio"
-	}
+	},
+	assets: 'png|jpg|gif|mp3|webp'
 }
