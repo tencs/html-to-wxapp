@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+require('commander')
+  .version(require('../package').version)
+  .usage('<command> [options]')
+  .command('stylelint', 'test css by stylelint')
+  .command('transfer', 'transfer html(css) to wxml(wxss)')
+  .parse(process.argv)

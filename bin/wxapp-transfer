@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+var path = require('path')
+var chalk = require('chalk')
+var transfer = require('../lib/transfer')
+var rmFolder = require('../lib/rmFolder')
+var fs = require('fs')
+var config = require('../config')
+
+program
+  .usage('<from-name> [to-name]')
+  .option('-c, --clean', 'delete the project after transfered')
+	.parse(process.argv)
+
+program.on('--help', function () {
+  console.log('  Examples:')
+  console.log()
+  console.log(chalk.gray('    # transfer the project to wxapp type'))
+  console.log('    $ wxapp transfer project-name')
+  console.log()
+})
+
+if(program.args.length < 1) {
+	return program.help()
+}
+
+var from = program.args[0]
+var to = program.args[1] || config.distNamePre + from
+var clean = program.clean || false
+var processPath = process.cwd()
+
+if(!fs.existsSync(from)) {
+	console.log(chalk.red(from + ' is missing'))
+	return
+}
+
+transfer(path.join(processPath, from), path.join(processPath, to))
+	.then(function(){
+		if(clean) {
+			rmFolder(path.join(processPath, from))
+		}
+		console.log(chalk.green('completed!'))
+	})

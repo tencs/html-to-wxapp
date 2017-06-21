@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+var path = require('path')
+var chalk = require('chalk')
+var stylelint = require('../lib/stylelint')
+var rmFolder = require('../lib/rmFolder')
+var fs = require('fs')
+
+program
+  .usage('<from-name>')
+	.parse(process.argv)
+
+program.on('--help', function () {
+  console.log('  Examples:')
+  console.log()
+  console.log(chalk.gray('    # run stylelint'))
+  console.log('    $ wxapp stylelint project-name')
+  console.log()
+})
+
+if(program.args.length < 1) {
+	return program.help()
+}
+
+var from = program.args[0]
+var processPath = process.cwd()
+
+if(!fs.existsSync(from)) {
+	console.log(chalk.red(from + ' is missing'))
+	return
+}
+
+stylelint(path.join(processPath, from))
+
