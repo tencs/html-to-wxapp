@@ -1,4 +1,4 @@
-# h5-to-wxapp
+html-to-wxapp - 将html及css转换成微信小程序的wxml和wxss的小工具
 
 ## 开始
 ```javascript

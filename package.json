@@ -1,5 +1,5 @@
 {
-  "name": "h5-to-wxapp",
+  "name": "html-to-wxapp",
   "version": "1.0.0",
   "description": "wxapp transfer tool",
   "main": "index.js",
