@@ -1,6 +1,6 @@
 {
   "name": "html-to-wxapp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wxapp transfer tool",
   "main": "index.js",
   "bin": {

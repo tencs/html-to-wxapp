@@ -9,15 +9,14 @@ var fs = require('fs')
 
 program
   .usage('<from-name>')
-	.parse(process.argv)
-
-program.on('--help', function () {
-  console.log('  Examples:')
-  console.log()
-  console.log(chalk.gray('    # run stylelint'))
-  console.log('    $ wxapp stylelint project-name')
-  console.log()
-})
+	.on('--help', function () {
+    console.log('  Examples:')
+    console.log()
+    console.log(chalk.gray('    # run stylelint'))
+    console.log('    $ wxapp stylelint project-name')
+    console.log()
+  })
+  .parse(process.argv)
 
 if(program.args.length < 1) {
 	return program.help()

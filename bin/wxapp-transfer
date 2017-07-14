@@ -11,15 +11,16 @@ var config = require('../config')
 program
   .usage('<from-name> [to-name]')
   .option('-c, --clean', 'delete the project after transfered')
+  .on('--help', function () {
+	  console.log('  Examples:')
+	  console.log()
+	  console.log(chalk.gray('    # transfer the project to wxapp type'))
+	  console.log('    $ wxapp transfer project-name')
+	  console.log()
+	})
 	.parse(process.argv)
 
-program.on('--help', function () {
-  console.log('  Examples:')
-  console.log()
-  console.log(chalk.gray('    # transfer the project to wxapp type'))
-  console.log('    $ wxapp transfer project-name')
-  console.log()
-})
+
 
 if(program.args.length < 1) {
 	return program.help()
