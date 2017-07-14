@@ -1,11 +1,9 @@
 html-to-wxapp - 将html及css转换成微信小程序的wxml和wxss的小工具
 
 ## 开始
-```javascript
-//安装依赖
-npm install
-//将命令注册到全局
-sudo npm link
+```sh
+//安装
+npm install html-to-wxapp -g
 ```
 
 ## 使用
@@ -19,7 +17,7 @@ sudo npm link
 ```
 
 ### 执行：
-```javascript
+```sh
 wxapp stylelint test
 ```
 
@@ -27,7 +25,7 @@ wxapp stylelint test
 
 
 ### 执行：
-```javascript
+```sh
 wxapp transfer test
 ```
 
