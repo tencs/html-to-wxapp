@@ -21,7 +21,7 @@ npm install html-to-wxapp -g
 wxapp stylelint test
 ```
 
-将会对test/index.css文件应用配置好的stylelint规则(stylelint.config.js)
+将会对test/index.css文件应用配置好的stylelint规则([stylelint.config.js](https://github.com/o2team/html-to-wxapp/blob/master/stylelint.config.js))，也可以通过 --config 参数来指定配置文件
 
 
 ### 执行：

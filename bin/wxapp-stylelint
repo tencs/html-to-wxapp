@@ -9,7 +9,8 @@ var fs = require('fs')
 
 program
   .usage('<from-name>')
-	.on('--help', function () {
+  .option('-c, --config [config]', 'custom config file')
+  .on('--help', function () {
     console.log('  Examples:')
     console.log()
     console.log(chalk.gray('    # run stylelint'))
@@ -19,16 +20,21 @@ program
   .parse(process.argv)
 
 if(program.args.length < 1) {
-	return program.help()
+  return program.help()
 }
 
 var from = program.args[0]
+var config = program.config
 var processPath = process.cwd()
 
 if(!fs.existsSync(from)) {
-	console.log(chalk.red(from + ' is missing'))
-	return
+  console.log(chalk.red(from + ' is missing'))
+  return
 }
 
-stylelint(path.join(processPath, from))
+if(config && !fs.existsSync(config)) {
+  console.log(chalk.red('config file not found'))
+  return
+}
+stylelint(path.join(processPath, from), config ? require(path.resolve(config)) : null)
 
